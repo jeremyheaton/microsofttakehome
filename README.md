@@ -55,6 +55,7 @@ The current implementation will always the closest 5 food trucks ("not really, i
   }
 ]
 ```
+I just picked a few fields to display, could display a lot more as well. These just seemed like the important ones. 
 
 The implementation uses a spatial library called JSI, I've worked with some other spatial libraries in the past but I've never used this one. I picked it specifically because of it's speed. There are a few problems though. One pitfall is that that it assumes a 2d plane, so it works well with coordinates that are very close together, like a city, but would not work well with a country or whole planet. 
 
