@@ -14,6 +14,7 @@ public class TruckController {
     this.truckService = truckService;
   }
 
+  // controller for trucks, not much to it.
   @GetMapping("/trucks")
   public List<FoodTruck> getTrucks(@RequestParam("lat") float lat, @RequestParam("lon") float lon){
     return truckService.getTrucks(lat, lon);

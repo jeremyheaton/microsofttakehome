@@ -25,6 +25,8 @@ public class LocationDataStore {
     return si;
   }
 
+  // use search our RTree to find points closest to our target. Will always return 5.
+  // because searches happen in another thread, we need to use an atomic number to keep references
   public List<AtomicInteger> search(float lat, float lon) {
     List<AtomicInteger> atomicIntegers = IntStream.rangeClosed(0,4).mapToObj(i-> new AtomicInteger()).collect(Collectors.toList());
     Iterator<AtomicInteger> integerIterator = atomicIntegers.iterator();

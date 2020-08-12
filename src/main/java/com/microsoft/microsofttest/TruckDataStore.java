@@ -10,6 +10,7 @@ public class TruckDataStore {
 
   private final Map<Integer, FoodTruck> foodTrucks = new HashMap<>();
 
+  //baiscally just use a hashmap and expose some functionality
   public FoodTruck getTruck(Integer integer) {
     return foodTrucks.get(integer);
   }

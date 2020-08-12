@@ -28,6 +28,7 @@ public class DataLoader {
     this.configProvider = configProvider;
   }
 
+  // method to load the csv file into our datastores
   @PostConstruct
   public void loaddata() throws IOException {
     File file = ResourceUtils.getFile(configProvider.getFilePath());
@@ -42,15 +43,18 @@ public class DataLoader {
 
     Iterator<CSVRecord> iterator = records.iterator();
     iterator.next();
+    // use our own ids because of how atomic integers work, we can't have a 0 for an id, so can't rely on outside sources.
     int i = 0;
     while (iterator.hasNext()) {
       CSVRecord record = iterator.next();
       FoodTruck truck = new FoodTruck(Float.parseFloat(record.get("Latitude")), Float.parseFloat(record.get("Longitude")),
           record.get("Address"), record.get("FoodItems"), ++i);
+      //add food truck to datastore
       truckDataStore.addTruck(truck.getId(), truck);
 
       final Rectangle rect = new Rectangle(truck.getLat(), truck.getLon(),
           truck.getLat(), truck.getLon());
+      //add food truck location + id to location data store.
       locationDataStore.getSpatialIndex().add(rect, truck.getId());
     }
   }

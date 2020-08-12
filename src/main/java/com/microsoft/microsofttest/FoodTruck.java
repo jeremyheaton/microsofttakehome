@@ -1,5 +1,6 @@
 package com.microsoft.microsofttest;
 
+// food truck pojo
 public class FoodTruck {
 
   private float lat;

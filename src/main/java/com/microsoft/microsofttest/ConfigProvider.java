@@ -7,6 +7,7 @@ public class ConfigProvider {
 
   private String filePath;
 
+  //used for injecting values into other classes, needed for proper testing of classes.
   public ConfigProvider() {
     filePath = "classpath:Mobile_Food_Facility_Permit.csv";
   }
