@@ -3,7 +3,7 @@ I provide two ways to run the application. The first being a deployable artifact
 
 From the root directory you can run either
 ```
-java -jar target/microsofttest-0.0.1-SNAPSHOT.jar
+java -jar microsofttest-0.0.1-SNAPSHOT.jar
 ```
 Or
 ```
